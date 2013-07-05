@@ -1,0 +1,42 @@
+</div>
+<style>
+p{
+font-size:18px;
+margin:10px;
+color:green;
+}
+pp
+{
+font-size:18px;
+margin:5px;
+}
+</style>
+<body bgcolor='orange'>
+<h1>Contacts</h1>
+<body bg color='orange'>
+<a href="/contact_add/">Add Contact</a>
+{% if latest_contact_list %}
+    <table border=1 align="center">
+        <tr>
+          <th>Name</th>
+          <th>Options</th>    
+        </tr>
+        {% for contact in latest_contact_list %}
+        <tr>
+          <td>
+            <a href="/phonebook/contact_edit/{{ contact.id }}/">
+      {{ contact.name }}
+      </a>
+          </td>&nbsp;&nbsp;
+          <td>
+            <a href="/contact_edit/{{ contact.id }}/">edit</a>
+      <a href="/contact_delete/{{ contact.id }}/">delete</a>
+          </td>      
+        </tr>
+        {% endfor %}    
+    </table>
+
+{% else %}
+    <p>No contacts created.</p>
+{% endif %}
+</body>
